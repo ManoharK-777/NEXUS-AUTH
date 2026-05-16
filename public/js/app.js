@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // When deploying: Replace with your Render URL (e.g., 'https://nexus-auth-backend.onrender.com')
     const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
         ? '' 
-        : 'https://nexus-auth-backend.onrender.com'; // PLACEHOLDER: Update this after creating Render service
+        : 'https://nexus-auth-03fd.onrender.com'; // Real Render Backend URL
 
     // UI Elements
     const form = document.getElementById('nexus-form');
