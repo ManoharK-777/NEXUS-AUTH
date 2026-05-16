@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS AUTH | Identity Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="nexus-preloader">
+        <div class="preloader-content">
+            <h1 class="orbitron glitch" data-text="NEXUS AUTH">NEXUS AUTH</h1>
+            <div class="loading-bar"><div class="loading-fill"></div></div>
+            <p>INITIALIZING SYSTEM...</p>
+        </div>
+    </div>
+
+    <!-- Animated Matrix Background -->
+    <div class="bg-canvas">
+        <canvas class="matrix-canvas" id="mc"></canvas>
+        <div class="grid"></div>
+        <div class="amb1"></div>
+        <div class="amb2"></div>
+        <div class="scan"></div>
+    </div>
+    
+    <div class="nexus-container">
+        <!-- HEADER -->
+        <header class="nexus-header">
+            <div class="glitch-wrapper">
+                <h1 class="glitch" data-text="NEXUS AUTH">NEXUS AUTH</h1>
+            </div>
+            <p class="subtitle">Dynamic identity intelligence powered by real-time validation.</p>
+            <div class="header-indicators">
+                <span class="indicator live">LIVE SECURE CONNECTION</span>
+                <span class="indicator version">SYS.V.7.0.4</span>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            
+            <!-- MAIN VALIDATION FORM -->
+            <section class="auth-panel glass-panel">
+                <div class="panel-header">
+                    <h2>IDENTITY VALIDATION</h2>
+                    <div class="pulse-dot"></div>
+                </div>
+                
+                <form id="nexus-form" autocomplete="off">
+                    
+                    <div class="input-group">
+                        <label for="username">ALIAS IDENTIFIER</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="username" name="username" placeholder="Enter Username" required>
+                            <span class="status-icon"></span>
+                        </div>
+                        <div class="feedback" id="username-feedback"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">COMMUNICATION NODE</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" name="email" placeholder="Enter Email Address" required>
+                            <span class="status-icon"></span>
+                        </div>
+                        <div class="feedback" id="email-feedback"></div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="phone">MOBILE TERMINAL</label>
+                            <div class="input-wrapper">
+                                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="feedback" id="phone-feedback"></div>
+                        </div>
+                        <div class="input-group">
+                            <label for="pin">SECURITY PIN</label>
+                            <div class="pin-wrapper">
+                                <input type="text" id="pin" name="pin" maxlength="6" placeholder="000000" pattern="\d{6}" required>
+                                <span class="status-icon"></span>
+                            </div>
+                            <div class="feedback" id="pin-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">ENCRYPTION KEY</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                            <span class="status-icon"></span>
+                            <button type="button" class="toggle-password"></button>
+                        </div>
+                        <div class="feedback" id="password-feedback"></div>
+                        
+                        <!-- Real-time checklist -->
+                        <ul class="password-reqs">
+                            <li id="req-length" class="unmet">12+ Characters</li>
+                            <li id="req-upper" class="unmet">Uppercase Letter</li>
+                            <li id="req-number" class="unmet">Numeric Value</li>
+                            <li id="req-special" class="unmet">Special Symbol</li>
+                        </ul>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirm-password">CONFIRM ENCRYPTION</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                            <span class="status-icon"></span>
+                        </div>
+                        <div class="feedback" id="confirm-feedback"></div>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="cyber-button" disabled>
+                        <span class="btn-text">INITIALIZE SEQUENCE</span>
+                        <div class="btn-scanner"></div>
+                    </button>
+                    
+                </form>
+            </section>
+
+            <!-- WIDGETS -->
+            <div class="widgets-column">
+                
+                <!-- PASSWORD INTELLIGENCE -->
+                <section class="widget glass-panel" id="password-intel">
+                    <div class="widget-header">
+                        <h3>ENTROPY ANALYSIS</h3>
+                    </div>
+                    <div class="intel-content">
+                        <div class="circular-chart">
+                            <svg viewBox="0 0 36 36" class="circular-chart-svg">
+                                <path class="circle-bg"
+                                    d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                                <path class="circle"
+                                    stroke-dasharray="0, 100"
+                                    d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                />
+                            </svg>
+                            <div class="score-text">0%</div>
+                        </div>
+                        <div class="entropy-status">VULNERABLE</div>
+                    </div>
+                </section>
+
+                <!-- THREAT DETECTION -->
+                <section class="widget glass-panel threat-widget">
+                    <div class="widget-header">
+                        <h3>THREAT DETECTION</h3>
+                        <span class="scanning-text">SCANNING...</span>
+                    </div>
+                    <div class="radar">
+                        <div class="sweep"></div>
+                    </div>
+                    <div class="threat-logs" id="threat-logs">
+                        <p>> System nominal</p>
+                    </div>
+                </section>
+
+                <!-- SECURITY TERMINAL -->
+                <section class="widget glass-panel terminal-widget">
+                    <div class="widget-header">
+                        <h3>SECURITY TERMINAL</h3>
+                    </div>
+                    <div class="terminal-screen" id="terminal-screen">
+                        <p>[SYS] NEXUS AUTH INITIATED.</p>
+                        <p>[SYS] AWAITING USER INPUT...</p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- IDENTITY SCAN OVERLAY -->
+        <div id="scan-overlay" class="hidden">
+            <div class="scan-modal glass-panel" id="scan-modal">
+                <div id="scan-animation">
+                    <div class="hologram"></div>
+                    <h2 class="orbitron">VERIFYING IDENTITY</h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p id="scan-status">Decrypting payload...</p>
+                </div>
+                
+                <!-- Secure ID Card (Hidden by default) -->
+                <div id="secure-id-card" class="hidden">
+                    <div class="id-card-header">
+                        <h2 class="orbitron success-text">IDENTITY CONFIRMED</h2>
+                        <span class="security-badge">LEVEL 5 CLEARANCE</span>
+                    </div>
+                    <div class="id-card-body">
+                        <div class="id-avatar"><div class="avatar-glow"></div></div>
+                        <div class="id-details">
+                            <p><strong>ALIAS:</strong> <span id="id-alias">N/A</span></p>
+                            <p><strong>NODE:</strong> <span id="id-email">N/A</span></p>
+                            <p><strong>TOKEN:</strong> <span id="id-token" class="highlight">N/A</span></p>
+                            <p><strong>TIMESTAMP:</strong> <span id="id-time">N/A</span></p>
+                        </div>
+                    </div>
+                    <div class="id-card-footer">
+                        <p class="email-notice">Details securely transmitted to communication node.</p>
+                        <button id="close-modal-btn" class="cyber-button sm-btn">CLOSE TERMINAL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
