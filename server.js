@@ -17,29 +17,26 @@ const users = [];
 app.post('/api/validate', (req, res) => {
     const { field, value } = req.body;
     
-    // Simulate network delay for AI feel
-    setTimeout(() => {
-        if (field === 'email') {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const isValid = emailRegex.test(value);
-            const exists = users.some(u => u.email === value);
-            
-            if (!isValid) return res.json({ valid: false, message: 'INVALID FORMAT DETECTED' });
-            if (exists) return res.json({ valid: false, message: 'IDENTITY ALREADY REGISTERED' });
-            
-            return res.json({ valid: true, message: 'CLEARED' });
-        }
+    if (field === 'email') {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const isValid = emailRegex.test(value);
+        const exists = users.some(u => u.email === value);
         
-        if (field === 'username') {
-            if (value.length < 4) return res.json({ valid: false, message: 'INSUFFICIENT LENGTH' });
-            const exists = users.some(u => u.username === value);
-            if (exists) return res.json({ valid: false, message: 'ALIAS UNAVAILABLE' });
-            
-            return res.json({ valid: true, message: 'CLEARED' });
-        }
+        if (!isValid) return res.json({ valid: false, message: 'INVALID FORMAT DETECTED' });
+        if (exists) return res.json({ valid: false, message: 'IDENTITY ALREADY REGISTERED' });
         
-        res.json({ valid: true });
-    }, 500);
+        return res.json({ valid: true, message: 'CLEARED' });
+    }
+    
+    if (field === 'username') {
+        if (value.length < 4) return res.json({ valid: false, message: 'INSUFFICIENT LENGTH' });
+        const exists = users.some(u => u.username === value);
+        if (exists) return res.json({ valid: false, message: 'ALIAS UNAVAILABLE' });
+        
+        return res.json({ valid: true, message: 'CLEARED' });
+    }
+    
+    res.json({ valid: true });
 });
 
 const nodemailer = require('nodemailer');
@@ -89,13 +86,11 @@ app.post('/api/auth', async (req, res) => {
 
         console.log("Transmission Successful. ID: %s", info.messageId);
 
-        setTimeout(() => {
-            res.json({ 
-                success: true, 
-                message: 'NEXUS AUTHENTICATION SUCCESSFUL',
-                token: token
-            });
-        }, 1200);
+        res.json({ 
+            success: true, 
+            message: 'NEXUS AUTHENTICATION SUCCESSFUL',
+            token: token
+        });
 
     } catch (err) {
         console.error("Transmission Error:", err);
