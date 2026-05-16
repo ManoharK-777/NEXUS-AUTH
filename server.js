@@ -65,8 +65,8 @@ app.post('/api/auth', async (req, res) => {
 
         const token = `NEXUS-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
 
-        // Send Email
-        let info = await transporter.sendMail({
+        // Send Email (Non-blocking background task)
+        transporter.sendMail({
             from: `"NEXUS IDENTITY ENGINE" <${process.env.EMAIL_USER}>`,
             to: email, 
             subject: "IDENTITY CONFIRMED - NEXUS AUTH SYSTEM",
@@ -82,10 +82,10 @@ app.post('/api/auth', async (req, res) => {
                     <p style="color: #666; margin-top: 40px; font-size: 12px;">This is an automated transmission. Zero knowledge proof validated.</p>
                 </div>
             `,
-        });
+        }).then(info => console.log("Background Transmission Successful:", info.messageId))
+          .catch(err => console.error("Background Transmission Error:", err));
 
-        console.log("Transmission Successful. ID: %s", info.messageId);
-
+        // Respond immediately to the frontend
         res.json({ 
             success: true, 
             message: 'NEXUS AUTHENTICATION SUCCESSFUL',
