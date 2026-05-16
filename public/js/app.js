@@ -17,6 +17,12 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    // API Configuration
+    // When deploying: Replace with your Render URL (e.g., 'https://nexus-auth-backend.onrender.com')
+    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+        ? '' 
+        : 'https://nexus-auth-backend.onrender.com'; // PLACEHOLDER: Update this after creating Render service
+
     // UI Elements
     const form = document.getElementById('nexus-form');
     const usernameInput = document.getElementById('username');
@@ -177,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const validateWithServer = async (field, value, inputElement) => {
         setInputState(inputElement, 'loading');
         try {
-            const res = await fetch('/api/validate', {
+            const res = await fetch(`${API_URL}/api/validate`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ field, value })
@@ -332,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 password: passwordInput.value
             };
             
-            const res = await fetch('/api/auth', {
+            const res = await fetch(`${API_URL}/api/auth`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
